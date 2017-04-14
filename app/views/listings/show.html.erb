@@ -1,0 +1,38 @@
+<div class="row">
+   <div class="col-md-6">
+    
+      <div class="thumbnail">        
+         <%= image_tag @listing.image.url %>   
+     </div>
+
+   </div>
+   <div class="col-md-6">
+      <div>
+        <h3><%= @listing.name %></h3> 
+      </div>
+    <table class="table">
+      <tr>
+        <td>Price</td>
+        <td><%= number_to_currency(@listing.price) %></td>
+      </tr>
+      <tr>
+        <td>Quantity</td>
+        <td><input type="number" min="1" max="100" value="1" ></td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td> <%= @listing.description %></td>
+      </tr>
+    </table>
+    <div class="center">  
+        <%=  link_to "Buy It Now", new_listing_order_path(@listing), class:"btn btn-warning btn-lg active" %>   
+    </div>
+  </div>
+</div>
+
+<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-success"%>
+
+
+
+    <%= link_to 'Edit', edit_listing_path(@listing), class:"btn btn-link" %> |
+    <%= link_to 'Back', listings_path, class:"btn btn-link" %>

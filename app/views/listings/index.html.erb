@@ -1,0 +1,30 @@
+<div class="center">
+  <div class="jumbotron">
+    <h1>Hello, world!</h1>
+     <p></p>
+  </div>
+
+<div class="row">
+  <% @listings.each do |listing| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+      <div class="caption">
+                <%= link_to image_tag(listing.image.url(:medium)), listing %>
+                <h3> <%= listing.name %></h3>   
+                <p><%= number_to_currency(listing.price) %></p> 
+                <%= link_to 'Show', listing, class: "btn btn-link" %>
+                 <% if (user_signed_in?) && (current_user == listing.user) %>
+                    <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+                    <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+                <% end %>
+              </div>       
+      </div>
+    </div>     
+  <% end %>
+  </div>
+</div>
+  <br>
+
+ <% if (user_signed_in?) %>
+    <%= link_to 'New Listing', new_listing_path,  class: "btn btn-success" %>
+  <% end %>
