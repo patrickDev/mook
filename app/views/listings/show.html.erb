@@ -30,9 +30,31 @@
   </div>
 </div>
 
-<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-success"%>
+<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-danger"%>
+<div class="container">
+<div class="row">
+  <% if @reviews.blank? %>
+  <h3>No reviews yet. Be the first to write one!</h3>
+    <% else %>
+    <div class="col-md-4">
 
-
-
+       <% @reviews.each do |review| %>
+          <% if (review.id % 2 == 0) %>
+              <p><%= review.rating %></p>
+              <p><%= review.comment %></p>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+       <% @reviews.each do |review| %>
+      <% if (review.id % 2 == 1) %>
+              <p><%= review.rating %></p>
+              <p><%= review.comment %></p>
+        <% end %>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
     <%= link_to 'Edit', edit_listing_path(@listing), class:"btn btn-link" %> |
     <%= link_to 'Back', listings_path, class:"btn btn-link" %>
