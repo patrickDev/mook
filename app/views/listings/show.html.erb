@@ -13,7 +13,7 @@
     <table class="table">
       <tr>
         <td>Price</td>
-        <td><%= number_to_currency(@listing.price) %></td>
+        <td><h4><%= number_to_currency(@listing.price) %></h4></td>
       </tr>
       <tr>
         <td>Quantity</td>
@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-danger"%>
+<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-primary"%>
 <div class="container">
 <div class="row">
   <% if @reviews.blank? %>
@@ -56,5 +56,7 @@
   <% end %>
 </div>
 </div>
+<div class="container">
     <%= link_to 'Edit', edit_listing_path(@listing), class:"btn btn-link" %> |
     <%= link_to 'Back', listings_path, class:"btn btn-link" %>
+</div>

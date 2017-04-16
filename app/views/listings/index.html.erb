@@ -9,9 +9,9 @@
     <div class="col-md-3">
       <div class="thumbnail">
       <div class="caption">
-                <%= link_to image_tag(listing.image.url(:medium)), listing %>
-                <h3> <%= listing.name %></h3>   
-                <p><%= number_to_currency(listing.price) %></p> 
+                 <%= link_to image_tag(listing.image.url), listing %>
+                    <h3> <%= listing.name %></h3>   
+                    <p><%= number_to_currency(listing.price) %></p> 
                 <%= link_to 'Show', listing, class: "btn btn-link" %>
                  <% if (user_signed_in?) && (current_user == listing.user) %>
                     <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>

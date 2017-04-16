@@ -30,12 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "paperclip", "~> 5.0.0"
 gem 'devise'
-gem "shrine-fog"
-gem 'fog-dropbox'
 gem "figaro"
 gem 'stripe'
+gem 'carrierwave', '~> 1.0'
+gem "fog-aws"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
